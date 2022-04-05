@@ -5,7 +5,7 @@
 
 using namespace std;
 typedef long long ll;
-#define B 16
+#define B 10
 
 
 //Subtraction
