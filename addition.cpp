@@ -38,6 +38,7 @@ pair<vector<ll>,ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b){
 	}
 	c.second=max(a.second,b.second);
 	if(carry>0) c.first[l]=carry;
+	truncate(c.first);
 	reverse(c.first.begin(),c.first.end());
 	return c;
 }

@@ -1,5 +1,15 @@
 #include "arithmetic.hpp"
 
+void truncate(vector<ll> &v)
+{
+    int i=v.size()-1;
+    while(i != 0 && v[i] == 0)
+    {
+        v.pop_back();
+        i--;
+    }
+}
+
 pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
 	reverse(a.first.begin(), a.first.end());
 	reverse(b.first.begin(), b.first.end());
@@ -51,6 +61,7 @@ pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
 			q[i]-=1;
 		}
 	}
+	truncate(q);
 	// for(auto it=q.rbegin();it!=q.rend();it++){
 	// 	cout<<*it<<" ";
 	// }
@@ -62,3 +73,4 @@ pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
 	reverse(q.begin(),q.end());
 	return {q,0};
 }
+
