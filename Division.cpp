@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-#define B 16
-using namespace std;
+#include <arithmetic.h>
 
 void division(vector<int> a, vector<int> b){
 	int l=b.size();

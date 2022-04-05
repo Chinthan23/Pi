@@ -1,8 +1,6 @@
-#include <bits/stdc++.h>
+#include <arithmetic.h>
 
-using namespace std;
-
-vector<int> add(vector<int> a, vector<int> b, int B){
+vector<int> add(vector<int> a, vector<int> b){
 	int k=0,l=0;
 	// l is the size of the greatest number
 	if(a.size()>b.size()){
@@ -36,14 +34,4 @@ vector<int> add(vector<int> a, vector<int> b, int B){
 	if(carry>0) c[l]=carry;
 
 	return c;
-}
-
-int main()
-{
-	pair<vector<int> a={9,9,9,9,9,9,9,9};
-	vector<int> b={9,9,9,9,9,9,9,9};
-
-	vector<int>  c=add(a,b,10);
-
-
 }

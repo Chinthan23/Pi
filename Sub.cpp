@@ -1,25 +1,26 @@
-#include "Sub.h"
-pair<vector <long long int>,long long int> sub(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b)
+#include "arithmetic.h"
+
+pair<vector <ll>,ll> sub(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
 {
     reverse(A.first.begin(),A.first.end());
-    reverse(B.first.begin(),B.first.end());
-    vector <long long int> grt=A.first;
-    vector <long long int> les=B.first;
-    if(A.first.size()!=B.first.size())
+    reverse(Y.first.begin(),Y.first.end());
+    vector <ll> grt=A.first;
+    vector <ll> les=Y.first;
+    if(A.first.size()!=Y.first.size())
     {
-        if(A.first.size()<B.first.size())
+        if(A.first.size()<Y.first.size())
         {
-            grt=B.first;
+            grt=Y.first;
             les=A.first;
         }
     }
     else
     {
-        for(long long int i=A.first.size()-1;i>=0;i--)
+        for(ll i=A.first.size()-1;i>=0;i--)
         {
-            if(B.first[i]>A.first[i])
+            if(Y.first[i]>A.first[i])
             {
-                grt=B.first;
+                grt=Y.first;
                 les=A.first;
                 break;
             }
@@ -29,17 +30,17 @@ pair<vector <long long int>,long long int> sub(pair<vector<long long int>,long l
             }
         }
     }
-    long long int grte=grt.size();
-    long long int lese=les.size();
-    pair<vector <long long int>,long long int> ans;
-    long long int carry=0;
+    ll grte=grt.size();
+    ll lese=les.size();
+    pair<vector <ll>,ll> ans;
+    ll carry=0;
     
-    for(long long int i=0;i<lese;i++)
+    for(ll i=0;i<lese;i++)
     {    
         int temp=(grt[i]-les[i]-carry);
         if(temp<0)
         {
-            temp=temp+b;
+            temp=temp+B;
             carry=1;
         }
         else
@@ -48,12 +49,12 @@ pair<vector <long long int>,long long int> sub(pair<vector<long long int>,long l
         }
         ans.first.push_back(temp);
     }
-    for(long long int i=lese;i<grte;i++)
+    for(ll i=lese;i<grte;i++)
     {
         int temp=grt[i]-carry;
         if(temp<0)
         {
-            temp=temp+b;
+            temp=temp+B;
             carry=1;
         }
         else
@@ -62,29 +63,29 @@ pair<vector <long long int>,long long int> sub(pair<vector<long long int>,long l
         }
         ans.first.push_back(temp);
     }
-    ans.second=max(A.second,B.second);
+    ans.second=max(A.second,Y.second);
     return(ans);
 }
-pair<pair<vector<long long int>,long long int>,pair<vector<long long int>,long long int>> decex(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B)
+pair<pair<vector<ll>,ll>,pair<vector<ll>,ll>> decex(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
 {
-    long long int final=max(A.second,B.second);
+    ll final=max(A.second,Y.second);
     while(A.second!=final)
     {
         A.first.push_back(0);
         A.second++;
     }
-    while(B.second!=final)
+    while(Y.second!=final)
     {
-        B.first.push_back(0);
-        B.second++;
+        Y.first.push_back(0);
+        Y.second++;
     }
-    return {A,B};
+    return {A,Y};
 }
-pair<vector <long long int>,long long int> subtractiond(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b)
+pair<vector <ll>,ll> subtractiond(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
 {
-    pair<pair<vector<long long int>,long long int>,pair<vector<long long int>,long long int>> An=decex(A,B);
+    pair<pair<vector<ll>,ll>,pair<vector<ll>,ll>> An=decex(A,Y);
     A=An.first;
-    B=An.second;
-    pair<vector <long long int>,long long int>ans=sub(A,B,b);
+    Y=An.second;
+    pair<vector <ll>,ll>ans=sub(A,Y);
     return ans;
 }

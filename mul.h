@@ -3,11 +3,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-pair<vector <long long int>,long long int> mn(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b);
+pair<vector <ll>,ll> mn(pair<vector<ll>,ll> A,pair<vector<ll>,ll> B,ll b);
 
-vector <long long int> carryh(vector <long long int> Z,long long int b);
+vector <ll> carryh(vector <ll> Z,ll b);
 
-pair<vector <long long int>,long long int> mul(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b);
+pair<vector <ll>,ll> mul(pair<vector<ll>,ll> A,pair<vector<ll>,ll> B,ll b);
 
-pair<vector<long long int>,long long int> multiplicationd(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b);
+pair<vector<ll>,ll> multiplicationd(pair<vector<ll>,ll> A,pair<vector<ll>,ll> B,ll b);
 
