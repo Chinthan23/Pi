@@ -38,14 +38,12 @@ vector<int> add(vector<int> a, vector<int> b, int B){
 	return c;
 }
 
-int main(){
-	vector<int> a={9,9,9,9,9,9,9,9};
+int main()
+{
+	pair<vector<int> a={9,9,9,9,9,9,9,9};
 	vector<int> b={9,9,9,9,9,9,9,9};
 
 	vector<int>  c=add(a,b,10);
 
-	for(auto it= c.rbegin(); it!=c.rend(); it++){
-		cout<<*it;
-	}
 
 }

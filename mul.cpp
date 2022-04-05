@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "mul.h"
 pair<vector <long long int>,long long int> mn(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b)
 {
     long long int i,j;
@@ -199,13 +198,10 @@ pair<vector <long long int>,long long int> mul(pair<vector<long long int>,long l
     ans.second=A.second+B.second;
     return ans;
 }
-int main()
+pair<vector<long long int>,long long int> multiplicationd(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b)
 {
-    pair<vector <long long int>,long long int> A={{1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0},0};
-    pair<vector <long long int>,long long int> B={{9,8,7,6,5,4,3,2,1,0,9,8,7,6,5,4,3,2,1,0,9,8,7,6,5,4,3,2,1,0},0};
-    long long int b=10;
     pair<vector <long long int>,long long int>ans=mul(A,B,b);
     ans.first=carryh(ans.first,b);
-    cout << 1234 << "\n";
+    return ans;
 }
 

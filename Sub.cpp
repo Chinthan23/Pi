@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "Sub.h"
 pair<vector <long long int>,long long int> sub(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b)
 {
     reverse(A.first.begin(),A.first.end());
@@ -81,14 +80,11 @@ pair<pair<vector<long long int>,long long int>,pair<vector<long long int>,long l
     }
     return {A,B};
 }
-int main()
+pair<vector <long long int>,long long int> subtractiond(pair<vector<long long int>,long long int> A,pair<vector<long long int>,long long int> B,long long int b)
 {
-    pair<vector <long long int>,long long int> A={{5,2,3,4},3};
-    pair<vector <long long int>,long long int> B={{4,2,4,7,5},4};
     pair<pair<vector<long long int>,long long int>,pair<vector<long long int>,long long int>> An=decex(A,B);
     A=An.first;
     B=An.second;
-    long long int b=10;
     pair<vector <long long int>,long long int>ans=sub(A,B,b);
-    cout << "1234" << "\n";
+    return ans;
 }
