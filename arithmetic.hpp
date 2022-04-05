@@ -32,6 +32,8 @@ pair<vector<ll>, ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b);
 
 //Division
 
-pair<vector<ll>, ll> division(vector<ll> a, vector<ll> b);
+pair<vector<ll>, ll> division(pair<vector<ll> ,ll> a, pair<vector<ll>, ll> b);
+
+void precision(pair<vector<ll>,ll> &a);
 
 #endif
