@@ -28,7 +28,7 @@ pair<vector<ll>,ll> multiplicationd(pair<vector<ll>,ll> X,pair<vector<ll>,ll> Y)
 
 //Addition
 
-pair<vector<ll>, ll> add(vector<ll> a, vector<ll> b);
+pair<vector<ll>, ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b);
 
 //Division
 

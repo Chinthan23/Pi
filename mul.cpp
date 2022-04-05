@@ -1,4 +1,4 @@
-#include "arithmetic.h"
+#include "arithmetic.hpp"
 
 pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
 {
@@ -203,5 +203,6 @@ pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll
 {
     pair<vector<ll>, ll> ans = mul(A, Y);
     ans.first = carryh(ans.first);
+    reverse(ans.first.begin(),ans.first.end());
     return ans;
 }

@@ -1,37 +1,38 @@
-#include <arithmetic.h>
+#include <arithmetic.hpp>
 
-vector<int> add(vector<int> a, vector<int> b){
-	int k=0,l=0;
+pair<vector<ll>,ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b){
+	
+	ll k=0,l=0;
 	// l is the size of the greatest number
-	if(a.size()>b.size()){
-		l=a.size();
-		k=b.size();
+	if(a.first.size()>b.first.size()){
+		l=a.first.size();
+		k=b.first.size();
 	}
-	else if(a.size()==b.size()){
-		l=a.size(),k=a.size();
+	else if(a.first.size()==b.first.size()){
+		l=a.first.size(),k=a.first.size();
 	}
 	else{
-		k=a.size(),l=b.size();
+		k=a.first.size(),l=b.first.size();
 	}
-	int carry=0;
-	vector<int> c(l+1, 0);
-	for(int i=0;i<k;i++){
-		c[i]=(a[i]+b[i]+carry)%B;
-		carry=(a[i]+b[i]+carry)/B;
+	ll carry=0;
+	pair<vector<ll>,ll> c{vector<ll>(l+1, 0),0};
+	for(ll i=0;i<k;i++){
+		c.first[i]=(a.first[i]+b.first[i]+carry)%B;
+		carry=(a.first[i]+b.first[i]+carry)/B;
 	}
-	if(l==a.size()){
-		for(int i=k;i<l;i++){
-			c[i]=(a[i]+carry)%B;
-			carry=(a[i]+carry)/B;
+	if(l==a.first.size()){
+		for(ll i=k;i<l;i++){
+			c.first[i]=(a.first[i]+carry)%B;
+			carry=(a.first[i]+carry)/B;
 		}
 	}
 	else{
-		for(int i=k;i<l;i++){
-			c[i]=(b[i]+carry)%B;
-			carry=(b[i]+carry)/B;
+		for(ll i=k;i<l;i++){
+			c.first[i]=(b.first[i]+carry)%B;
+			carry=(b.first[i]+carry)/B;
 		}
 	}
-	if(carry>0) c[l]=carry;
+	if(carry>0) c.first[l]=carry;
 
 	return c;
 }
