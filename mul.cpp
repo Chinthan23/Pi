@@ -199,7 +199,7 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
     ans.second = A.second + Y.second;
     return ans;
 }
-pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y, ll b)
+pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
 {
     pair<vector<ll>, ll> ans = mul(A, Y);
     ans.first = carryh(ans.first);

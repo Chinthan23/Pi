@@ -28,10 +28,10 @@ pair<vector<ll>,ll> multiplicationd(pair<vector<ll>,ll> X,pair<vector<ll>,ll> Y)
 
 //Addition
 
-vector<int> add(vector<int> a, vector<int> b);
+pair<vector<ll>, ll> add(vector<ll> a, vector<ll> b);
 
 //Division
 
-pair<vector<ll>, ll> division(vector<int> a, vector<int> b);
+pair<vector<ll>, ll> division(vector<ll> a, vector<ll> b);
 
 #endif
