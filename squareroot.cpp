@@ -1,9 +1,7 @@
 #include "arithmetic.hpp"
 
-int main()
+pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p)
 {
-    pair<vector<ll>,ll> A={{2},0};
-    ll p=1038;
     pair<vector<ll>,ll> ans=A;
     pair<vector<ll>,ll> half={{0,5},1};
     ll c=0;
@@ -21,7 +19,7 @@ int main()
         if(check.second>p)
         {
             bool icheck=true;
-            for(ll i=check.first.size()-check.second;i<check.first.size();i++)
+            for(ll i=check.first.size()-check.second;i<check.first.size()-check.second+p;i++)
             {
                 if(check.first[i]!=0)
                 {
@@ -41,7 +39,13 @@ int main()
         }
         c++;
     }
-    for(auto i: ans.first){
-        cout<<i;
+    if(ans.second>=p)
+    {
+        while(ans.second!=p)
+        {
+            ans.first.pop_back();
+            ans.second--;
+        }
     }
+    return ans;
 }

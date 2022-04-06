@@ -42,5 +42,8 @@ void precision(pair<vector<ll>,ll> &a);
 
 void truncated(pair<vector<ll>,ll> &v);
 
+// Square Root
+
+pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p);
 
 #endif
