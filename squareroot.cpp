@@ -2,11 +2,12 @@
 
 int main()
 {
-    pair<vector<ll>,ll> A={{4,6,1,3,4,6,4},0};
-    pair<vector<ll>,ll> p={{0,0,0,0,0,0,0,0,0,0,1},10};
+    pair<vector<ll>,ll> A={{2},0};
+    ll p=1038;
     pair<vector<ll>,ll> ans=A;
     pair<vector<ll>,ll> half={{0,5},1};
     ll c=0;
+    bool checker=false;
     while(true)
     {
         pair<vector<ll>,ll> dan=divd(A,ans,c+1);
@@ -17,8 +18,30 @@ int main()
         reverse(ansd.first.begin(),ansd.first.end());
         truncated(ansd);
         pair<vector<ll>,ll> check=subtractiond(ansd,ans);
-        bool checker=false;
+        if(check.second>p)
+        {
+            bool icheck=true;
+            for(ll i=check.first.size()-check.second;i<check.first.size();i++)
+            {
+                if(check.first[i]!=0)
+                {
+                    icheck=false;
+                    break;
+                }
+            }
+            if(icheck)
+            {
+                checker=true;
+            }
+        }
+        ans=ansd;
+        if(checker)
+        {
+            break;
+        }
         c++;
     }
-    cout << "1234" << "\n";
+    for(auto i: ans.first){
+        cout<<i;
+    }
 }

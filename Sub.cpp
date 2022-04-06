@@ -18,16 +18,21 @@ pair<vector <ll>,ll> sub(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
     {
         for(ll i=A.first.size()-1;i>=0;i--)
         {
-            if(Y.first[i]>A.first[i])
-            {
-                grt=Y.first;
-                les=A.first;
-                break;
-            }
-            else
-            {
-                break;
-            }
+           if (A.first[i]>Y.first[i])
+           {
+               break;
+           }
+           else if (A.first[i]<Y.first[i])
+           {
+               grt=Y.first;
+               les=A.first;
+               break;
+           }
+           else
+           {
+               continue;
+           }
+           
         }
     }
     ll grte=grt.size();

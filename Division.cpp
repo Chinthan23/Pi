@@ -31,9 +31,10 @@ void precision(pair<vector<ll>,ll> &a,ll t)
 }
 pair<vector<ll>,ll> divd(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p)
 {
-	precision(a,p);
+	ll pr=p+b.second;
+	precision(a,pr);
 	pair<vector<ll>,ll> ans=division(a,b);
-	ans.second=p+(a.second-b.second);
+	ans.second=p+a.second;
 	return ans;
 }
 
