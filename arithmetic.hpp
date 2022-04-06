@@ -34,8 +34,13 @@ pair<vector<ll>, ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b);
 
 pair<vector<ll>, ll> division(pair<vector<ll> ,ll> a, pair<vector<ll>, ll> b);
 
+pair<vector<ll>,ll> divd(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p);
+
 void truncate(vector<ll> &v);
 
 void precision(pair<vector<ll>,ll> &a);
+
+void truncated(pair<vector<ll>,ll> &v);
+
 
 #endif

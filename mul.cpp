@@ -45,9 +45,18 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
         A.first.push_back(0);
     }
     reverse(Y.first.begin(), Y.first.end());
-    while (Y.first.size() != A.first.size())
+    while (Y.first.size() %3!=0)
     {
         Y.first.push_back(0);
+    }
+    ll size=max(Y.first.size(),A.first.size());
+    while(Y.first.size()!=size)
+    {
+        Y.first.push_back(0);
+    }
+    while(A.first.size()!=size)
+    {
+        A.first.push_back(0);
     }
     vector<ll> a0, a1, a2, b0, b1, b2;
     for (ll i = A.first.size() / 3 - 1; i >= 0; i--)

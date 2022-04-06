@@ -1,11 +1,12 @@
 #include "arithmetic.hpp"
 
 pair<vector<ll>,ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b){
-	reverse(a.first.begin(),a.first.end());
-	reverse(b.first.begin(),b.first.end());
+	
 	pair<pair<vector<ll>,ll>,pair<vector<ll>,ll>> An=decex(a,b);
 	a=An.first;
 	b=An.second;
+	reverse(a.first.begin(),a.first.end());
+	reverse(b.first.begin(),b.first.end());
 	ll k=0,l=0;
 	// l is the size of the greatest number
 	if(a.first.size()>b.first.size()){

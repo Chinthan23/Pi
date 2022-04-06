@@ -9,6 +9,33 @@ void truncate(vector<ll> &v)
         i--;
     }
 }
+void truncated(pair<vector<ll>,ll> &v)
+{
+    int i=v.first.size()-1;
+	int c=0;
+	ll dc=v.second;
+    while(i != 0 && v.first[i] == 0 && c<=dc)
+    {
+        v.first.pop_back();
+        i--;
+		c++;
+		v.second--;
+    }
+}
+void precision(pair<vector<ll>,ll> &a,ll t)
+{
+	for(ll i=0;i<t;i++)
+	{
+		a.first.push_back(0);
+	}
+}
+pair<vector<ll>,ll> divd(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p)
+{
+	precision(a,p);
+	pair<vector<ll>,ll> ans=division(a,b);
+	ans.second=p+(a.second-b.second);
+	return ans;
+}
 
 pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
 	reverse(a.first.begin(), a.first.end());
@@ -17,12 +44,12 @@ pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
 	int k=a.first.size();
 	vector<ll> q(k-l+1,0);
 	vector<ll> r(k+1);
-	cout<<"here\n";
+	
 	for(int i=0;i<k;i++){
 		r[i]=a.first[i];
 	}
 	r[k]=0;
-	cout<<"here\n";
+	
 
 	for(int i=(k-l);i>=0;i--){
 
