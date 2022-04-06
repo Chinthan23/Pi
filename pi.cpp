@@ -2,18 +2,18 @@
 
 int main()
 {
-    pair<vector<ll>,ll> root2=sqaureroot({{2},0},200);
+    ll pr=10;
+    pair<vector<ll>,ll> root2=sqaureroot({{2},0},pr+5);
     pair<vector<ll>,ll> a=root2;
     pair<vector<ll>,ll> b={{0},0};
     pair<vector<ll>,ll> p=add({{2},0},root2);
     pair<vector<ll>,ll> half={{0,5},1};
-    ll pr=200;
     ll c=0;
     bool checker=false;
     while(true)
     {
-        pair<vector<ll>,ll> a_1=sqaureroot(a,200);
-        pair<vector<ll>,ll> a_2=divd({{1},0},a_1,200);
+        pair<vector<ll>,ll> a_1=sqaureroot(a,pr+5);
+        pair<vector<ll>,ll> a_2=divd({{1},0},a_1,pr+5);
         pair<vector<ll>,ll> a_3=add(a_1,a_2);
         pair<vector<ll>,ll> anew=multiplicationd(half,a_3);
         reverse(anew.first.begin(),anew.first.end());
@@ -27,7 +27,7 @@ int main()
         reverse(b_2.first.begin(),b_2.first.end());
         truncated(b_2);
         pair<vector<ll>,ll> b_3=add(a,b);
-        pair<vector<ll>,ll> b_4=divd({{1},0},b_3,200);
+        pair<vector<ll>,ll> b_4=divd({{1},0},b_3,pr+5);
         pair<vector<ll>,ll> bnew=multiplicationd(b_2,b_4);
         reverse(bnew.first.begin(),bnew.first.end());
         truncate(bnew.first);
@@ -45,7 +45,7 @@ int main()
         reverse(p_3.first.begin(),p_3.first.end());
         truncated(p_3);
         pair<vector<ll>,ll> p_4=add({{1},0},bnew);
-        pair<vector<ll>,ll> p_5=divd({{1},0},p_4,200);
+        pair<vector<ll>,ll> p_5=divd({{1},0},p_4,pr+5);
         pair<vector<ll>,ll> pnew=multiplicationd(p_3,p_5);
         reverse(pnew.first.begin(),pnew.first.end());
         truncate(pnew.first);
@@ -85,5 +85,7 @@ int main()
             p.second--;
         }
     }
-    cout << 1234 << "\n";
+    for(auto i: p.first){
+        cout<<i;
+    }
 }
