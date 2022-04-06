@@ -2,12 +2,12 @@
 
 int main()
 {
-    ll pr=10;
+    ll pr=200;
     pair<vector<ll>,ll> root2=sqaureroot({{2},0},pr+5);
     pair<vector<ll>,ll> a=root2;
     pair<vector<ll>,ll> b={{0},0};
     pair<vector<ll>,ll> p=add({{2},0},root2);
-    pair<vector<ll>,ll> half={{0,5},1};
+    pair<vector<ll>,ll> half={{0,B/2},1};
     ll c=0;
     bool checker=false;
     while(true)
@@ -86,6 +86,7 @@ int main()
         }
     }
     for(auto i: p.first){
-        cout<<i;
+        cout<<i << " ";
     }
+    cout <<"\n" << p.second << "\n";
 }

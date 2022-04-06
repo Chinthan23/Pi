@@ -5,8 +5,7 @@
 
 using namespace std;
 typedef long long ll;
-#define B 10
-
+#define B 16
 
 //Subtraction
 pair<vector <ll>,ll> sub(pair<vector<ll>,ll> X,pair< vector <ll>,ll> Y);

@@ -3,7 +3,7 @@
 pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p)
 {
     pair<vector<ll>,ll> ans=A;
-    pair<vector<ll>,ll> half={{0,5},1};
+    pair<vector<ll>,ll> half={{0,B/2},1};
     ll c=0;
     bool checker=false;
     while(true)
