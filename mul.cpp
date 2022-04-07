@@ -3,17 +3,22 @@
 pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
 {
     ll i, j;
-    pair<vector<ll>, ll> ans;
-    for (i = 0; i < A.first.size() * 2; i++)
+    ll k=A.first.size(),l=Y.first.size();
+    reverse(A.first.begin(),A.first.end());
+    reverse(Y.first.begin(),Y.first.end());
+    pair<vector<ll>, ll> ans{vector<ll>(A.first.size()+Y.first.size(),0),0};
+    ll carry;
+    ll temp;
+    for (i = 0; i < k; i++)
     {
-        ans.first.push_back(0);
-    }
-    for (j = 0; j < Y.first.size(); j++)
-    {
-        for (i = 0; i < A.first.size(); i++)
+        carry=0;
+        for (j = 0; j <l; j++)
         {
-            ans.first[j + i] += A.first[i] * Y.first[j];
+            temp=A.first[i]*Y.first[j]+ans.first[i+j]+carry;
+            carry=temp/B;
+            ans.first[i+j]=temp%B;
         }
+        ans.first[i+l]=carry;
     }
     ans.second = A.second + Y.second;
     return ans;
@@ -210,8 +215,9 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
 }
 pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
 {
-    pair<vector<ll>, ll> ans = mul(A, Y);
-    ans.first = carryh(ans.first);
+    pair<vector<ll>, ll> ans = mn(A, Y);
+    truncate(ans.first);
     reverse(ans.first.begin(),ans.first.end());
+    truncated(ans);
     return ans;
 }

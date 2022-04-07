@@ -11,10 +11,6 @@ pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p)
         pair<vector<ll>,ll> dan=divd(A,ans,c+1);
         pair<vector<ll>,ll> aan=add(ans,dan);
         pair<vector<ll>,ll> ansd=multiplicationd(half,aan);
-        reverse(ansd.first.begin(),ansd.first.end());
-        truncate(ansd.first);
-        reverse(ansd.first.begin(),ansd.first.end());
-        truncated(ansd);
         pair<vector<ll>,ll> check=subtractiond(ansd,ans);
         if(check.second>p)
         {
