@@ -10,7 +10,7 @@ typedef long long ll;
 //Subtraction
 pair<vector <ll>,ll> sub(pair<vector<ll>,ll> X,pair< vector <ll>,ll> Y);
 
-pair<pair<vector<ll>,ll>,pair<vector<ll>,ll> > decex(pair<vector<ll>,ll> X,pair<vector<ll>, ll > Y);
+void decex(pair<vector<ll>,ll> &X,pair<vector<ll>, ll > &Y);
 
 pair<vector <ll>,ll> subtractiond(pair<vector<ll>,ll> X,pair<vector<ll>,ll> Y);
 

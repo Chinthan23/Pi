@@ -71,7 +71,7 @@ pair<vector <ll>,ll> sub(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
     ans.second=max(A.second,Y.second);
     return(ans);
 }
-pair<pair<vector<ll>,ll>,pair<vector<ll>,ll>> decex(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
+void decex(pair<vector<ll>,ll> &A,pair<vector<ll>,ll> &Y)
 {
     ll final=max(A.second,Y.second);
     while(A.second!=final)
@@ -84,13 +84,10 @@ pair<pair<vector<ll>,ll>,pair<vector<ll>,ll>> decex(pair<vector<ll>,ll> A,pair<v
         Y.first.push_back(0);
         Y.second++;
     }
-    return {A,Y};
 }
 pair<vector <ll>,ll> subtractiond(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
 {
-    pair<pair<vector<ll>,ll>,pair<vector<ll>,ll>> An=decex(A,Y);
-    A=An.first;
-    Y=An.second;
+    decex(A,Y);
     pair<vector <ll>,ll>ans=sub(A,Y);
     reverse(ans.first.begin(),ans.first.end());
     return ans;
