@@ -33,6 +33,8 @@ pair<vector<ll>, ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b);
 
 pair<vector<ll>, ll> division(pair<vector<ll> ,ll> a, pair<vector<ll>, ll> b);
 
+pair<pair<vector<ll> , ll>, pair<vector<ll>,ll> > divisionr(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b);
+
 pair<vector<ll>,ll> divd(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p);
 
 void truncate(vector<ll> &v);
