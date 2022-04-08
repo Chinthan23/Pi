@@ -1,29 +1,29 @@
 #include "arithmetic.hpp"
 
-pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
+pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y, ll B)
 {
     ll i, j;
-    ll k=A.first.size(),l=Y.first.size();
-    reverse(A.first.begin(),A.first.end());
-    reverse(Y.first.begin(),Y.first.end());
-    pair<vector<ll>, ll> ans{vector<ll>(A.first.size()+Y.first.size(),0),0};
+    ll k = A.first.size(), l = Y.first.size();
+    reverse(A.first.begin(), A.first.end());
+    reverse(Y.first.begin(), Y.first.end());
+    pair<vector<ll>, ll> ans{vector<ll>(A.first.size() + Y.first.size(), 0), 0};
     ll carry;
     ll temp;
     for (i = 0; i < k; i++)
     {
-        carry=0;
-        for (j = 0; j <l; j++)
+        carry = 0;
+        for (j = 0; j < l; j++)
         {
-            temp=A.first[i]*Y.first[j]+ans.first[i+j]+carry;
-            carry=temp/B;
-            ans.first[i+j]=temp%B;
+            temp = A.first[i] * Y.first[j] + ans.first[i + j] + carry;
+            carry = temp / B;
+            ans.first[i + j] = temp % B;
         }
-        ans.first[i+l]=carry;
+        ans.first[i + l] = carry;
     }
     ans.second = A.second + Y.second;
     return ans;
 }
-vector<ll> carryh(vector<ll> Z,ll B)
+vector<ll> carryh(vector<ll> Z, ll B)
 {
     ll cr = 0, i;
     for (i = 0; i < Z.size(); i++)
@@ -41,7 +41,7 @@ vector<ll> carryh(vector<ll> Z,ll B)
     }
     return Z;
 }
-pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
+pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y, ll B)
 {
     reverse(A.first.begin(), A.first.end());
     while (A.first.size() % 3 != 0)
@@ -49,16 +49,16 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
         A.first.push_back(0);
     }
     reverse(Y.first.begin(), Y.first.end());
-    while (Y.first.size() %3!=0)
+    while (Y.first.size() % 3 != 0)
     {
         Y.first.push_back(0);
     }
-    ll size=max(Y.first.size(),A.first.size());
-    while(Y.first.size()!=size)
+    ll size = max(Y.first.size(), A.first.size());
+    while (Y.first.size() != size)
     {
         Y.first.push_back(0);
     }
-    while(A.first.size()!=size)
+    while (A.first.size() != size)
     {
         A.first.push_back(0);
     }
@@ -89,7 +89,7 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
     }
     if (A.first.size() <= 9)
     {
-        return mn(A, Y,B);
+        return mn(A, Y, B);
     }
     pair<vector<ll>, ll> a_2, b_2;
     for (ll i = 0; i < A.first.size() / 3; i++)
@@ -146,11 +146,11 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
     }
     a_0.second = 0;
     b_0.second = 0;
-    pair<vector<ll>, ll> c_m2 = mul(a_2, b_2,B);
-    pair<vector<ll>, ll> c_m1 = mul(a_m1, b_m1,B);
-    pair<vector<ll>, ll> c_0 = mul(a_0, b_0,B);
-    pair<vector<ll>, ll> c_1 = mul(a_1, b_1,B);
-    pair<vector<ll>, ll> c_inf = mul(a_inf, b_inf,B);
+    pair<vector<ll>, ll> c_m2 = mul(a_2, b_2, B);
+    pair<vector<ll>, ll> c_m1 = mul(a_m1, b_m1, B);
+    pair<vector<ll>, ll> c_0 = mul(a_0, b_0, B);
+    pair<vector<ll>, ll> c_1 = mul(a_1, b_1, B);
+    pair<vector<ll>, ll> c_inf = mul(a_inf, b_inf, B);
     vector<ll> c1((A.first.size() / 3) * 2), c2((A.first.size() / 3) * 2), c3((A.first.size() / 3) * 2), c4((A.first.size() / 3) * 2), c0((A.first.size() / 3) * 2);
     for (ll i = 0; i < ((A.first.size() / 3) * 2); i++)
     {
@@ -174,7 +174,7 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
         c2[i] /= 6;
     }
     c2.push_back(0);
-    vector<ll> c2c = carryh(c2,B);
+    vector<ll> c2c = carryh(c2, B);
     for (ll i = 0; i < ((A.first.size() / 3) * 2); i++)
     {
         c1[i] = c_m2.first[i];
@@ -212,11 +212,11 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
     ans.second = A.second + Y.second;
     return ans;
 }
-pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
+pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y, ll B)
 {
-    pair<vector<ll>, ll> ans = mn(A, Y,B);
+    pair<vector<ll>, ll> ans = mn(A, Y, B);
     truncate(ans.first);
-    reverse(ans.first.begin(),ans.first.end());
+    reverse(ans.first.begin(), ans.first.end());
     truncated(ans);
     return ans;
 }
