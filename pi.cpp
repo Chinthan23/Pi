@@ -59,15 +59,32 @@ int main()
         }
         c++;
     }
-    if(p.second>=pr)
+    pair<vector<ll>,ll> ans({p.first[p.first.size()-(p.second+1)]},0);
+    pair<vector<ll>,ll> powB{{B},0},pb{{B},0},o{{1},0},ob{{1},0},ptb{{1},0};
+    for(ll i=p.first.size()-(p.second+2);i>=0;i--)
     {
-        while(p.second!=pr)
+        pair<vector<ll>,ll> temp{{p.first[i]},0};
+        ptb=multiplicationd(temp,powB);
+        ans=add(ans,ptb);
+        powB=multiplicationd(powB,pb);
+    }
+    for(ll i=p.first.size()-(p.second);i<p.first.size();i++)
+    {
+        pair<vector<ll>,ll> temp{{p.first[i]},0};
+        o=divd(o,pb,pri);
+        ob=multiplicationd(temp,o);
+        ans=add(ans,ob);
+    }
+    if(ans.second>=pr)
+    {
+        while(ans.second!=pr)
         {
-            p.first.pop_back();
-            p.second--;
+            ans.first.pop_back();
+            ans.second--;
         }
     }
-    for(auto i: p.first){
+    
+    for(auto i: ans.first){
         cout<<i ;
     }
     
