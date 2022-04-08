@@ -1,6 +1,6 @@
 #include "arithmetic.hpp"
 
-pair<vector<ll>,ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b){
+pair<vector<ll>,ll> add(pair<vector<ll>,ll> a, pair<vector<ll>,ll> b,ll B){
 	
 decex(a,b);
 	reverse(a.first.begin(),a.first.end());

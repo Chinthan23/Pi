@@ -1,6 +1,6 @@
 #include "arithmetic.hpp"
 
-pair<vector <ll>,ll> sub(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
+pair<vector <ll>,ll> sub(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y,ll B)
 {
     reverse(A.first.begin(),A.first.end());
     reverse(Y.first.begin(),Y.first.end());
@@ -85,10 +85,10 @@ void decex(pair<vector<ll>,ll> &A,pair<vector<ll>,ll> &Y)
         Y.second++;
     }
 }
-pair<vector <ll>,ll> subtractiond(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y)
+pair<vector <ll>,ll> subtractiond(pair<vector<ll>,ll> A,pair<vector<ll>,ll> Y,ll B)
 {
     decex(A,Y);
-    pair<vector <ll>,ll>ans=sub(A,Y);
+    pair<vector <ll>,ll>ans=sub(A,Y,B);
     reverse(ans.first.begin(),ans.first.end());
     return ans;
 }

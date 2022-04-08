@@ -1,6 +1,6 @@
 #include "arithmetic.hpp"
 
-pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
+pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
 {
     ll i, j;
     ll k=A.first.size(),l=Y.first.size();
@@ -23,7 +23,7 @@ pair<vector<ll>, ll> mn(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
     ans.second = A.second + Y.second;
     return ans;
 }
-vector<ll> carryh(vector<ll> Z)
+vector<ll> carryh(vector<ll> Z,ll B)
 {
     ll cr = 0, i;
     for (i = 0; i < Z.size(); i++)
@@ -39,10 +39,9 @@ vector<ll> carryh(vector<ll> Z)
         }
         Z[i] -= cr * B;
     }
-
     return Z;
 }
-pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
+pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
 {
     reverse(A.first.begin(), A.first.end());
     while (A.first.size() % 3 != 0)
@@ -90,7 +89,7 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
     }
     if (A.first.size() <= 9)
     {
-        return mn(A, Y);
+        return mn(A, Y,B);
     }
     pair<vector<ll>, ll> a_2, b_2;
     for (ll i = 0; i < A.first.size() / 3; i++)
@@ -147,11 +146,11 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
     }
     a_0.second = 0;
     b_0.second = 0;
-    pair<vector<ll>, ll> c_m2 = mul(a_2, b_2);
-    pair<vector<ll>, ll> c_m1 = mul(a_m1, b_m1);
-    pair<vector<ll>, ll> c_0 = mul(a_0, b_0);
-    pair<vector<ll>, ll> c_1 = mul(a_1, b_1);
-    pair<vector<ll>, ll> c_inf = mul(a_inf, b_inf);
+    pair<vector<ll>, ll> c_m2 = mul(a_2, b_2,B);
+    pair<vector<ll>, ll> c_m1 = mul(a_m1, b_m1,B);
+    pair<vector<ll>, ll> c_0 = mul(a_0, b_0,B);
+    pair<vector<ll>, ll> c_1 = mul(a_1, b_1,B);
+    pair<vector<ll>, ll> c_inf = mul(a_inf, b_inf,B);
     vector<ll> c1((A.first.size() / 3) * 2), c2((A.first.size() / 3) * 2), c3((A.first.size() / 3) * 2), c4((A.first.size() / 3) * 2), c0((A.first.size() / 3) * 2);
     for (ll i = 0; i < ((A.first.size() / 3) * 2); i++)
     {
@@ -175,7 +174,7 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
         c2[i] /= 6;
     }
     c2.push_back(0);
-    vector<ll> c2c = carryh(c2);
+    vector<ll> c2c = carryh(c2,B);
     for (ll i = 0; i < ((A.first.size() / 3) * 2); i++)
     {
         c1[i] = c_m2.first[i];
@@ -213,9 +212,9 @@ pair<vector<ll>, ll> mul(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
     ans.second = A.second + Y.second;
     return ans;
 }
-pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y)
+pair<vector<ll>, ll> multiplicationd(pair<vector<ll>, ll> A, pair<vector<ll>, ll> Y,ll B)
 {
-    pair<vector<ll>, ll> ans = mn(A, Y);
+    pair<vector<ll>, ll> ans = mn(A, Y,B);
     truncate(ans.first);
     reverse(ans.first.begin(),ans.first.end());
     truncated(ans);

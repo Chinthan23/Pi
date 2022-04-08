@@ -1,6 +1,6 @@
 #include "arithmetic.hpp"
 
-pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p)
+pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p,ll B)
 {
     pair<vector<ll>,ll> ans=A;
     pair<vector<ll>,ll> half={{0,B/2},1};
@@ -8,10 +8,10 @@ pair <vector<ll>,ll> sqaureroot(pair<vector<ll>,ll> A,ll p)
     bool checker=false;
     while(true)
     {
-        pair<vector<ll>,ll> dan=divd(A,ans,c+1);
-        pair<vector<ll>,ll> aan=add(ans,dan);
-        pair<vector<ll>,ll> ansd=multiplicationd(half,aan);
-        pair<vector<ll>,ll> check=subtractiond(ansd,ans);
+        pair<vector<ll>,ll> dan=divd(A,ans,c+1,B);
+        pair<vector<ll>,ll> aan=add(ans,dan,B);
+        pair<vector<ll>,ll> ansd=multiplicationd(half,aan,B);
+        pair<vector<ll>,ll> check=subtractiond(ansd,ans,B);
         if(check.second>p)
         {
             bool icheck=true;

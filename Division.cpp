@@ -29,16 +29,24 @@ void precision(pair<vector<ll>,ll> &a,ll t)
 		a.first.push_back(0);
 	}
 }
-pair<vector<ll>,ll> divd(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p)
+pair<vector<ll>,ll> divd(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p,ll B)
 {
 	ll pr=p+b.second;
 	precision(a,pr);
-	pair<vector<ll>,ll> ans=division(a,b);
+	pair<vector<ll>,ll> ans=division(a,b,B);
+	ans.second=p+a.second;
+	return ans;
+}
+pair<vector<ll>,ll> divr(pair<vector<ll>,ll> a,pair<vector<ll>,ll> b,ll p,ll B)
+{
+	ll pr=p+b.second;
+	precision(a,pr);
+	pair<vector<ll>,ll> ans=divisionr(a,b,B);
 	ans.second=p+a.second;
 	return ans;
 }
 
-pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
+pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b,ll B){
 	reverse(a.first.begin(), a.first.end());
 	reverse(b.first.begin(), b.first.end());
 	int l=b.first.size();
@@ -102,7 +110,7 @@ pair<vector<ll> , ll> division(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
 	return {q,0};
 }
 
-pair<pair<vector<ll> , ll>, pair<vector<ll>,ll> > divisionr(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b){
+pair<vector<ll>,ll>  divisionr(pair<vector<ll>, ll> a, pair<vector<ll>,ll> b,ll B){
 	reverse(a.first.begin(), a.first.end());
 	reverse(b.first.begin(), b.first.end());
 	int l=b.first.size();
@@ -163,5 +171,5 @@ pair<pair<vector<ll> , ll>, pair<vector<ll>,ll> > divisionr(pair<vector<ll>, ll>
 	// }
 	// cout<<"\n";
 	reverse(q.begin(),q.end());
-	reverse(r.begin(),r.end());
-	return make_pair(make_pair(q,0),make_pair(r,0));
+	return {q,0};
+}
